@@ -9,26 +9,30 @@ func main() {
 	start := time.Now()
 	userID := 1
 
-	// fetch all
-	data := fetchUserData(userID)
-	likes := fetchUserLikes(userID)
-	recs := fetchUserRecommendation(userID)
+	respCh := make(chan string)
 
-	fmt.Printf("data: %s likes: %s, recos: %s\n", data, likes, recs)
+	// fetch all concurrently
+	go fetchUserData(userID, respCh)
+	go fetchUserLikes(userID, respCh)
+	go fetchUserRecommendation(userID, respCh)
+
 	fmt.Println("time elapsed:", time.Since(start))
 }
 
-func fetchUserData(userID int) string {
+func fetchUserData(userID int, respCh chan string) {
 	time.Sleep(50 * time.Millisecond)
-	return fmt.Sprintf("fetched data for user_id: %d", userID)
+
+	respCh <- fmt.Sprintf("fetched data for user_id: %d", userID)
 }
 
-func fetchUserLikes(userID int) string {
+func fetchUserLikes(userID int, respCh chan string) {
 	time.Sleep(50 * time.Millisecond)
-	return fmt.Sprintf("fetched likes for user_id: %d", userID)
+
+	respCh <- fmt.Sprintf("fetched likes for user_id: %d", userID)
 }
 
-func fetchUserRecommendation(userID int) string {
+func fetchUserRecommendation(userID int, respCh chan string) {
 	time.Sleep(100 * time.Millisecond)
-	return fmt.Sprintf("fetched recommendations for user_id: %d", userID)
+
+	respCh <- fmt.Sprintf("fetched recommendations for user_id: %d", userID)
 }
