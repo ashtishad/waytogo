@@ -1,7 +1,9 @@
 package main
 
-import "github.com/ashtishad/waytogo/anthonygg"
+import (
+	"github.com/ashtishad/waytogo/concurrency"
+)
 
 func main() {
-	anthonygg.UserDataConcurrencyIntro()
+	concurrency.UserDataConcurrencyIntro()
 }

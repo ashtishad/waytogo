@@ -1,4 +1,4 @@
-package anthonygg
+package concurrency
 
 import (
 	"fmt"
@@ -52,3 +52,6 @@ func fetchUserRecommendation(userID int, respCh chan string, wg *sync.WaitGroup)
 
 	respCh <- fmt.Sprintf("fetched recommendations for user_id: %d", userID)
 }
+
+// anthony gg
+// https://www.youtube.com/watch?v=P4tckkcyef0&list=PPSV
