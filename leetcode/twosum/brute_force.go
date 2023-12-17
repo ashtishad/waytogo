@@ -3,7 +3,7 @@ package twosum
 // brute-force
 // Time: O(n^2) and Space: O(1)
 
-func twoSum(nums []int, target int) []int {
+func twoSumIBF(nums []int, target int) []int {
 	var res []int
 
 	n := len(nums)

@@ -24,7 +24,7 @@ func TestTwoSum(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		result := twoSum(test.nums, test.target)
+		result := twoSumHashMap(test.nums, test.target)
 		if !reflect.DeepEqual(result, test.result) {
 			t.Errorf("For nums=%v, target=%d, expected %v but got %v", test.nums, test.target, test.result, result)
 		}
