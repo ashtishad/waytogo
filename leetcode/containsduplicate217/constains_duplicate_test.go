@@ -22,7 +22,7 @@ func TestContainsDuplicate(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run("", func(t *testing.T) {
-			result := containsDuplicateIBF(test.nums)
+			result := containsDuplicateSortedApproach(test.nums)
 			if result != test.result {
 				t.Errorf("Expected %v, but got %v for input %v", test.result, result, test.nums)
 			}
