@@ -22,7 +22,7 @@ func TestMaxProfit(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		result := maxProfitIBF(test.prices)
+		result := maxProfit(test.prices)
 		if !reflect.DeepEqual(result, test.result) {
 			t.Errorf("For prices=%v, expected %v but got %v", test.prices, test.result, result)
 		}
