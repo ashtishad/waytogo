@@ -9,11 +9,10 @@ func twoSumHashMap(nums []int, target int) []int {
 	seen := make(map[int]int) // key: num val: index
 
 	for i, num := range nums {
-		compl := target - num // compliment
+		comp := target - num // compliment
 
-		_, ok := seen[compl]
-		if ok {
-			res = append(res, seen[compl], i)
+		if _, ok := seen[comp]; ok {
+			res = append(res, seen[comp], i)
 			return res
 		}
 
