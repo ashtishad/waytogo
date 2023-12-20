@@ -6,7 +6,7 @@ package majorityelement169
 
 import "slices"
 
-func majorityElement(nums []int) int {
+func majorityElementSBS(nums []int) int {
 	n := len(nums)
 
 	if n == 1 {
