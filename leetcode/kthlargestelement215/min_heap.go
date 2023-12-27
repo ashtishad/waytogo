@@ -15,7 +15,7 @@ import (
 // O(k log k) for building the initial heap + O((n - k) log k) for processing the remaining elements,
 // where n is the length of the input array. In the worst case (k close to n), overall time complexity is O(n log k).
 
-func findKthLargest(nums []int, k int) int {
+func findKthLargestA2(nums []int, k int) int {
 	h := &ds.MinHeap{}
 	heap.Init(h)
 
