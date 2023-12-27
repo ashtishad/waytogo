@@ -2,9 +2,9 @@ package ds
 
 // To construct a heap, we must need to implement these methods.
 // type Interface interface {
-// 	sort.Interface (len, less, swap)
-// 	Push(x any) // add x as element Len()
-// 	Pop() any   // remove and return element Len() - 1.
+// sort.Interface (len, less, swap)
+// Push(x any) // add x as element Len()
+// Pop() any   // remove and return element Len() - 1.
 
 // MinHeap is a min-heap implementation using a priority queue.
 type MinHeap []int
