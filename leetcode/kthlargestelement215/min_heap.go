@@ -16,18 +16,16 @@ import (
 // where n is the length of the input array. In the worst case (k close to n), overall time complexity is O(n log k).
 
 func findKthLargest(nums []int, k int) int {
-	minHeap := make(ds.MinHeap, 0)
+	h := &ds.MinHeap{}
+	heap.Init(h)
 
-	for i := 0; i < k; i++ {
-		heap.Push(&minHeap, nums[i])
-	}
+	for _, num := range nums {
+		heap.Push(h, num)
 
-	for i := k; i < len(nums); i++ {
-		if nums[i] > minHeap[0] {
-			heap.Pop(&minHeap)
-			heap.Push(&minHeap, nums[i])
+		if h.Len() > k {
+			heap.Pop(h)
 		}
 	}
 
-	return minHeap[0]
+	return (*h)[0]
 }
